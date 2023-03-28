@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from "./node_modules/three/build/three.module.js";
+      import { OrbitControls } from "./node_modules/three/examples/jsm/controls/OrbitControls.js";
+      import { VRButton } from "./node_modules/three/examples/jsm/webxr/VRButton.js";
+      import { XRControllerModelFactory } from "./node_modules/three/examples/jsm/webxr/XRControllerModelFactory.js";
+
+      const App = {
+        scene: undefined,
+        camera: undefined,
+        spotLight: undefined,
+        renderer: undefined,
+
+        init: function () {
+          this.createScene();
+          this.createCamera();
+          //   this.createLight();
+          this.createRenderer();
+
+          this.render();
+        },
+
+        createScene: function () {
+          this.scene = new THREE.Scene();
+        },
+
+        createCamera: function () {
+          this.camera = new THREE.PerspectiveCamera(
+            50,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            10
+          );
+
+          this.camera.position.x = 0;
+          this.camera.position.y = 1.6;
+          this.camera.position.z = 2;
+        },
+
+        createRenderer: function () {
+          this.renderer = new THREE.WebGLRenderer();
+          this.renderer.setClearColor(0xcccccc, 1, 0);
+          this.renderer.setSize(window.innerWidth, window.innerHeight);
+
+          document.body.appendChild(this.renderer.domElement);
+        },
+
+        addMesh: function() {
+            
+        },
+
+        render: function () {
+          // -- 7- RENDU DE LA SCENE ----------------------------
+          this.renderer.render(this.scene, this.camera);
+        },
+      };
+      App.init();
+    </script>
+  </body>
+</html>
