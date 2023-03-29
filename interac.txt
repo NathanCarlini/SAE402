@@ -1,0 +1,63 @@
+
+      // The textures to use
+      var arr = [
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Nicolas_Cage_Comic-Con_2011.jpg/220px-Nicolas_Cage_Comic-Con_2011.jpg',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRsqRHAgzEAGjfGz1tWo_hMmPNjlhh1gpZNg&usqp=CAU',
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Nicolas_Cage_Comic-Con_2011.jpg/220px-Nicolas_Cage_Comic-Con_2011.jpg',
+        ];
+      var textureToShow = 0;
+      // Load the first texture
+      // var texture = loadTexture('https://s3-us-west-2.amazonaws.com/s.cdpn.io/259155/MarbleSurface.jpg');
+
+      // Instantiate the material we will be using
+      var boxMaterial = new THREE.MeshBasicMaterial();
+      const box = new THREE.Mesh(boxGeometry, boxMaterial);
+      box.translateY(0);
+      box.translateX(50);
+
+      loader.load(arr[textureToShow], function (tex) {
+        console.log("le loader passe");
+        // Once the texture has loaded
+        // Asign it to the material
+        boxMaterial.map = tex;
+        // Update the next texture to show
+        textureToShow++;
+        group.add(box);
+      })
+
+
+
+
+
+
+
+      const floorGeometry = new THREE.PlaneGeometry(200, 200);
+      const floorMaterial = new THREE.MeshPhongMaterial({
+        color: 0xffffff,
+        roughness: 1.0,
+        metalness: 0.0,
+      });
+      const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+      floor.rotation.x = -Math.PI / 2;
+      floor.receiveShadow = true;
+      scene.add(floor);
+
+      var cvs = document.getElementsByTagName("div")[0];
+
+      cvs.addEventListener("click", function () {
+        // console.log("ça ping");
+        // Once the texture has loaded
+        // Asign it to the material
+        loader.load(arr[textureToShow], function (tex) {
+                // Once the texture has loaded
+                // Asign it to the material
+                boxMaterial.map = tex;
+                // Update the next texture to show
+                textureToShow++;
+                // Have we got to the end of the textures array
+                if (textureToShow > arr.length - 1) {
+                    textureToShow = 0;
+                }
+            });
+
+      })

@@ -185,19 +185,21 @@
       var cvs = document.getElementsByTagName("div")[0];
 
       cvs.addEventListener("click", function () {
-        console.log("ça ping");
+        // console.log("ça ping");
         // Once the texture has loaded
         // Asign it to the material
-        boxMaterial.map = this.tex;
-        // Update the next texture to show
-        textureToShow++;
-        console.log("texturetoshow = " + textureToShow);
-        console.log(arr.length);
-        // Have we got to the end of the textures array
-        if (textureToShow > arr.length - 1) {
-          console.log("ça boucle");
-          textureToShow = 0;
-        }
+        loader.load(arr[textureToShow], function (tex) {
+                // Once the texture has loaded
+                // Asign it to the material
+                boxMaterial.map = tex;
+                // Update the next texture to show
+                textureToShow++;
+                // Have we got to the end of the textures array
+                if (textureToShow > arr.length - 1) {
+                    textureToShow = 0;
+                }
+            });
+
       })
     }
 
