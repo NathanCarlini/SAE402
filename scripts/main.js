@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-
-  <body>
-    <script
-      async
-      src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"
-    ></script>
-
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "./node_modules/three/build/three.module.js",
-          "three/addons/": "./node_modules/three/examples/jsm/",
-          "orbitcontrols": "./node_modules/three/examples/jsm/controls/OrbitControls.js"
-        }
-      }
-    </script>
-
-    <script type="module">
-      import * as THREE from "three";
+import * as THREE from "three";
       import { OrbitControls } from "three/addons/controls/OrbitControls.js";
       import { VRButton } from "three/addons/webxr/VRButton.js";
       import { XRControllerModelFactory } from "three/addons/webxr/XRControllerModelFactory.js";
+      import {createObject} from './objects.js';
 
       let container;
       let camera, scene, renderer;
@@ -79,8 +54,8 @@
         const floorGeometry = new THREE.PlaneGeometry(20, 20);
         const floorMaterial = new THREE.MeshPhongMaterial({
           color: 0xffffff,
-          roughness: 1.0,
-          metalness: 0.0,
+        //   roughness: 1.0,
+        //   metalness: 0.0,
         });
         const floor = new THREE.Mesh(floorGeometry, floorMaterial);
         floor.rotation.x = -Math.PI / 2;
@@ -100,7 +75,6 @@
           const wall = new THREE.Mesh(wallGeometry, wallMaterial);
           wall.translateY(heightWall / 2);
           walls.push(wall);
-          console.log(walls);
         }
         // walls[0].translateY()
         walls[0].translateZ(-10);
@@ -111,6 +85,7 @@
         walls[3].translateX(10);
         walls[3].rotateY(-Math.PI / 2);
         scene.add(walls[0], walls[1], walls[2], walls[3]);
+        console.log(walls[0].position.x);
 
         group = new THREE.Group();
         scene.add(group);
@@ -136,39 +111,6 @@
           group.add(object);
         }
 
-        // // Création de la première box
-        // let heightBox = 2;
-        // const boxGeometry = new THREE.BoxGeometry(1, heightBox, 1);
-        // // const boxMaterial = new THREE.MeshPhongMaterial({ color: 0x77b5fe });
-
-        // var loader = new THREE.TextureLoader();
-        // loader.crossOrigin = "";
-
-        // // The textures to use
-        // var arr = [
-        //   "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Nicolas_Cage_Comic-Con_2011.jpg/220px-Nicolas_Cage_Comic-Con_2011.jpg",
-        //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRsqRHAgzEAGjfGz1tWo_hMmPNjlhh1gpZNg&usqp=CAU",
-        //   "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Nicolas_Cage_Comic-Con_2011.jpg/220px-Nicolas_Cage_Comic-Con_2011.jpg",
-        // ];
-        // var textureToShow = 0;
-        // // Load the first texture
-        // // var texture = loadTexture('https://s3-us-west-2.amazonaws.com/s.cdpn.io/259155/MarbleSurface.jpg');
-
-        // // Instantiate the material we will be using
-        // var material = new THREE.MeshBasicMaterial();
-        // const object = new THREE.Mesh(boxGeometry, material);
-        // object.translateY(heightBox / 2);
-        // object.translateX(5);
-
-        // loader.load(arr[textureToShow], function (tex) {
-        //   console.log("le loader passe");
-        //   // Once the texture has loaded
-        //   // Asign it to the material
-        //   material.map = tex;
-        //   // Update the next texture to show
-        //   textureToShow++;
-        //   group.add(object);
-        // });
 
         // Création du renderer
         renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -303,6 +245,3 @@
         intersectObjects(controller2);
         renderer.render(scene, camera);
       }
-    </script>
-  </body>
-</html>
