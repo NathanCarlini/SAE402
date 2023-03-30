@@ -3,6 +3,7 @@ import * as THREE from "three";
       import { VRButton } from "three/addons/webxr/VRButton.js";
       import { XRControllerModelFactory } from "three/addons/webxr/XRControllerModelFactory.js";
       import {createObject} from './objects.js';
+      import data from './temp.js';
 
       let container;
       let camera, scene, renderer;
@@ -51,7 +52,7 @@ import * as THREE from "three";
         scene.add(spotLightHelper);
 
         // Création du sol
-        const floorGeometry = new THREE.PlaneGeometry(20, 20);
+        const floorGeometry = new THREE.PlaneGeometry(14, 14);
         const floorMaterial = new THREE.MeshPhongMaterial({
           color: 0xffffff,
         //   roughness: 1.0,
@@ -65,8 +66,8 @@ import * as THREE from "three";
         var cvs = document.getElementsByTagName("div")[0];
 
         // Création murs
-        let heightWall = 5;
-        const wallGeometry = new THREE.PlaneGeometry(20, heightWall);
+        let heightWall = 3;
+        const wallGeometry = new THREE.PlaneGeometry(14, heightWall);
         const wallMaterial = new THREE.MeshPhongMaterial({
           color: 0x00ff00,
         });
@@ -77,38 +78,22 @@ import * as THREE from "three";
           walls.push(wall);
         }
         // walls[0].translateY()
-        walls[0].translateZ(-10);
-        walls[1].translateZ(10);
+        walls[0].translateZ(-7);
+        walls[1].translateZ(7);
         walls[1].rotateY(Math.PI);
-        walls[2].translateX(-10);
+        walls[2].translateX(-7);
         walls[2].rotateY(Math.PI / 2);
-        walls[3].translateX(10);
+        walls[3].translateX(7);
         walls[3].rotateY(-Math.PI / 2);
         scene.add(walls[0], walls[1], walls[2], walls[3]);
-        console.log(walls[0].position.x);
+
 
         group = new THREE.Group();
         scene.add(group);
 
-        for (let i = 0; i < 2; i++) {
-          let heightBox = 2;
-          const geometry = new THREE.BoxGeometry(1, heightBox, 1)
-          const material = new THREE.MeshStandardMaterial({
-            color: 0xff0000,
-            roughness: 0.7,
-            metalness: 0.0,
-          });
-
-          const object = new THREE.Mesh(geometry, material);
-
-          object.position.x = Math.random() * 4 - 2;
-          object.position.y = heightBox/2
-          object.position.z = Math.random() * 4 - 2;
-
-          object.castShadow = true;
-          object.receiveShadow = true;
-
-          group.add(object);
+        // createObject(data.width, data.height, data.depth, data.x, data.y, data.z)
+        for(let i=0; i<data.length; i++){
+            group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z));
         }
 
 
