@@ -16,6 +16,9 @@ import * as THREE from "three";
       const tempMatrix = new THREE.Matrix4();
 
       let control, group;
+      let marker, floor, baseReferenceSpace;
+
+      let INTERSECTION;
 
       init();
       animate();
@@ -51,23 +54,28 @@ import * as THREE from "three";
         const spotLightHelper = new THREE.SpotLightHelper(spotLight);
         scene.add(spotLightHelper);
 
+        // Création marker pour la téléportation
+        marker = new THREE.Mesh(
+					new THREE.CircleGeometry( 0.25, 32 ).rotateX( - Math.PI / 2 ),
+					new THREE.MeshBasicMaterial( { color: 0x808080 } )
+				);
+				scene.add( marker );
+
         // Création du sol
-        const floorGeometry = new THREE.PlaneGeometry(14, 14);
+        const floorGeometry = new THREE.PlaneGeometry(20, 20);
         const floorMaterial = new THREE.MeshPhongMaterial({
           color: 0xffffff,
         //   roughness: 1.0,
         //   metalness: 0.0,
         });
-        const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+        floor = new THREE.Mesh(floorGeometry, floorMaterial);
         floor.rotation.x = -Math.PI / 2;
         floor.receiveShadow = true;
         scene.add(floor);
 
-        var cvs = document.getElementsByTagName("div")[0];
-
         // Création murs
-        let heightWall = 3;
-        const wallGeometry = new THREE.PlaneGeometry(14, heightWall);
+        let heightWall = 5;
+        const wallGeometry = new THREE.PlaneGeometry(20, heightWall);
         const wallMaterial = new THREE.MeshPhongMaterial({
           color: 0x00ff00,
         });
@@ -78,24 +86,21 @@ import * as THREE from "three";
           walls.push(wall);
         }
         // walls[0].translateY()
-        walls[0].translateZ(-7);
-        walls[1].translateZ(7);
+        walls[0].translateZ(-10);
+        walls[1].translateZ(10);
         walls[1].rotateY(Math.PI);
-        walls[2].translateX(-7);
+        walls[2].translateX(-10);
         walls[2].rotateY(Math.PI / 2);
-        walls[3].translateX(7);
+        walls[3].translateX(10);
         walls[3].rotateY(-Math.PI / 2);
         scene.add(walls[0], walls[1], walls[2], walls[3]);
-
 
         group = new THREE.Group();
         scene.add(group);
 
-        // createObject(data.width, data.height, data.depth, data.x, data.y, data.z)
-        for(let i=0; i<data.length; i++){
-            group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z, ));
-        }
-
+        for (let i = 0; i < data.length; i++) {
+            group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z))
+          };
 
         // Création du renderer
         renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -103,20 +108,65 @@ import * as THREE from "three";
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.outputEncoding = THREE.sRGBEncoding;
         renderer.shadowMap.enabled = true;
+        renderer.xr.addEventListener( 'sessionstart', () => baseReferenceSpace = renderer.xr.getReferenceSpace() );
         renderer.xr.enabled = true;
-        container.appendChild(renderer.domElement);
 
+        container.appendChild(renderer.domElement);
         document.body.appendChild(VRButton.createButton(renderer));
+
+        // Création des fonctions pour les téléportations
+        function moveStart() {
+
+					this.userData.isSelecting = true;
+
+				}
+
+				function moveEnd() {
+
+					this.userData.isSelecting = false;
+
+					if ( INTERSECTION ) {
+
+						const offsetPosition = { x: - INTERSECTION.x, y: - INTERSECTION.y, z: - INTERSECTION.z, w: 1 };
+						const offsetRotation = new THREE.Quaternion();
+						const transform = new XRRigidTransform( offsetPosition, offsetRotation );
+						const teleportSpaceOffset = baseReferenceSpace.getOffsetReferenceSpace( transform );
+
+						renderer.xr.setReferenceSpace( teleportSpaceOffset );
+
+					}
+
+				}
 
         // Création des controllers de la VR
         controller1 = renderer.xr.getController(0);
         controller1.addEventListener("selectstart", onSelectStart);
         controller1.addEventListener("selectend", onSelectStart);
+        controller1.addEventListener( 'connected', function ( event ) {
+
+					this.add( buildController( event.data ) );
+
+				} );
+				controller1.addEventListener( 'disconnected', function () {
+
+					this.remove( this.children[ 0 ] );
+
+				} );
         scene.add(controller1);
 
         controller2 = renderer.xr.getController(1);
-        controller2.addEventListener("selectstart", onSelectStart);
-        controller2.addEventListener("selectend", onSelectStart);
+        controller2.addEventListener("selectstart", moveStart);
+        controller2.addEventListener("selectend", moveEnd);
+        controller2.addEventListener( 'connected', function ( event ) {
+
+					this.add( buildController( event.data ) );
+
+				} );
+				controller2.addEventListener( 'disconnected', function () {
+
+					this.remove( this.children[ 0 ] );
+
+				} );
         scene.add(controller2);
 
         const controllerModelFactory = new XRControllerModelFactory();
@@ -150,6 +200,32 @@ import * as THREE from "three";
         window.addEventListener("resize", onWindowResize);
       }
 
+      function buildController( data ) {
+
+				let geometry, material;
+
+				switch ( data.targetRayMode ) {
+
+					case 'tracked-pointer':
+
+						geometry = new THREE.BufferGeometry();
+						geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( [ 0, 0, 0, 0, 0, - 1 ], 3 ) );
+						geometry.setAttribute( 'color', new THREE.Float32BufferAttribute( [ 0.5, 0.5, 0.5, 0, 0, 0 ], 3 ) );
+
+						material = new THREE.LineBasicMaterial( { vertexColors: true, blending: THREE.AdditiveBlending } );
+
+						return new THREE.Line( geometry, material );
+
+					case 'gaze':
+
+						geometry = new THREE.RingGeometry( 0.02, 0.04, 32 ).translate( 0, 0, - 1 );
+						material = new THREE.MeshBasicMaterial( { opacity: 0.5, transparent: true } );
+						return new THREE.Mesh( geometry, material );
+
+				}
+
+			}
+
       function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -166,7 +242,7 @@ import * as THREE from "three";
           const intersection = intersections[0];
 
           const object = intersection.object;
-          // object.material.emissive.b = 1;
+          object.material.emissive.b = 1;
           // controller.attach(object);
 
           controller.userData.selected = object;
@@ -178,7 +254,7 @@ import * as THREE from "three";
 
         if (controller.userData.selected !== undefined) {
           const object = controller.userData.selected;
-          // object.material.emissive.b = 0;
+          object.material.emissive.b = 0;
           // group.attach(object);
 
           controller.userData.selected = undefined;
@@ -216,7 +292,7 @@ import * as THREE from "three";
       function cleanIntersected() {
         while (intersected.length) {
           const object = intersected.pop();
-          // object.material.emissive.r = 0;
+          object.material.emissive.r = 0;
         }
       }
 
@@ -225,8 +301,30 @@ import * as THREE from "three";
       }
 
       function render() {
+        INTERSECTION = undefined;
+
+				if ( controller2.userData.isSelecting === true ) {
+
+					tempMatrix.identity().extractRotation( controller2.matrixWorld );
+
+					raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
+					raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
+
+					const intersects = raycaster.intersectObjects( [ floor ] );
+
+					if ( intersects.length > 0 ) {
+
+						INTERSECTION = intersects[ 0 ].point;
+
+					}
+
+				}
+
+				if ( INTERSECTION ) marker.position.copy( INTERSECTION );
+
+				marker.visible = INTERSECTION !== undefined;
+
         cleanIntersected();
         intersectObjects(controller1);
-        intersectObjects(controller2);
         renderer.render(scene, camera);
       }
