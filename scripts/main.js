@@ -62,7 +62,7 @@ import * as THREE from "three";
 				scene.add( marker );
 
         // Création du sol
-        const floorGeometry = new THREE.PlaneGeometry(20, 20);
+        const floorGeometry = new THREE.PlaneGeometry(14, 14);
         const floorMaterial = new THREE.MeshPhongMaterial({
           color: 0xffffff,
         //   roughness: 1.0,
@@ -74,8 +74,8 @@ import * as THREE from "three";
         scene.add(floor);
 
         // Création murs
-        let heightWall = 5;
-        const wallGeometry = new THREE.PlaneGeometry(20, heightWall);
+        let heightWall = 3;
+        const wallGeometry = new THREE.PlaneGeometry(14, heightWall);
         const wallMaterial = new THREE.MeshPhongMaterial({
           color: 0x00ff00,
         });
@@ -86,12 +86,12 @@ import * as THREE from "three";
           walls.push(wall);
         }
         // walls[0].translateY()
-        walls[0].translateZ(-10);
-        walls[1].translateZ(10);
+        walls[0].translateZ(-7);
+        walls[1].translateZ(7);
         walls[1].rotateY(Math.PI);
-        walls[2].translateX(-10);
+        walls[2].translateX(-7);
         walls[2].rotateY(Math.PI / 2);
-        walls[3].translateX(10);
+        walls[3].translateX(7);
         walls[3].rotateY(-Math.PI / 2);
         scene.add(walls[0], walls[1], walls[2], walls[3]);
 
