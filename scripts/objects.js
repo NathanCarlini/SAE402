@@ -9,7 +9,8 @@ export function createObject(
   depth,
   positionX,
   positionY,
-  positionZ
+  positionZ,
+  tex
 ) {
   let heightBox = 2;
   const geometry = new THREE.BoxGeometry(width, height, depth);
@@ -18,6 +19,15 @@ export function createObject(
     //   roughness: 0.7,
     //   metalness: 0.0,
   });
+  // var loader = new THREE.TextureLoader();
+  // //allow cross origin loading
+  // loader.crossOrigin = '';
+
+  // var material = new THREE.MeshBasicMaterial();
+
+//  let tex = loader.load("https://media.gettyimages.com/id/625763258/fr/photo/nicolas-cage-attends-the-german-sustainability-award-2016-at-maritim-hotel-on-november-25-2016.jpg?s=612x612&w=gi&k=20&c=oQv1fk5Xwu_tsjX84k2SJoQbPRGND1qKBcEWHcEOebs=")
+//   material.map = tex
+
 
   const object = new THREE.Mesh(geometry, material);
 

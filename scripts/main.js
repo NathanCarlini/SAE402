@@ -93,7 +93,7 @@ import * as THREE from "three";
 
         // createObject(data.width, data.height, data.depth, data.x, data.y, data.z)
         for(let i=0; i<data.length; i++){
-            group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z));
+            group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z, ));
         }
 
 
@@ -166,7 +166,7 @@ import * as THREE from "three";
           const intersection = intersections[0];
 
           const object = intersection.object;
-          object.material.emissive.b = 1;
+          // object.material.emissive.b = 1;
           // controller.attach(object);
 
           controller.userData.selected = object;
@@ -178,7 +178,7 @@ import * as THREE from "three";
 
         if (controller.userData.selected !== undefined) {
           const object = controller.userData.selected;
-          object.material.emissive.b = 0;
+          // object.material.emissive.b = 0;
           // group.attach(object);
 
           controller.userData.selected = undefined;
@@ -216,7 +216,7 @@ import * as THREE from "three";
       function cleanIntersected() {
         while (intersected.length) {
           const object = intersected.pop();
-          object.material.emissive.r = 0;
+          // object.material.emissive.r = 0;
         }
       }
 

@@ -2,7 +2,8 @@ let data = [
   //cuisine
   //meubles useless
   {
-    name: "meuble cuisine",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 1,
@@ -11,7 +12,8 @@ let data = [
     z: -6.5,
   },
   {
-    name: "meuble cuisine",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 1,
@@ -21,7 +23,8 @@ let data = [
   },
 
   {
-    name: "meuble cuisine",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 1,
@@ -30,7 +33,8 @@ let data = [
     z: -5.5,
   },
   {
-    name: "meuble cuisine",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 1,
@@ -39,7 +43,8 @@ let data = [
     z: -4.5,
   },
   {
-    name: "meuble cuisine",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 1,
@@ -49,7 +54,8 @@ let data = [
   },
 
   {
-    name: "meuble mid",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 3,
@@ -59,7 +65,8 @@ let data = [
   },
 
   {
-    name: "meuble mid",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 3,
     height: 1,
     depth: 1,
@@ -70,7 +77,8 @@ let data = [
 
   // interactions
   {
-    name: "mixeur",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 0.3,
     height: 1,
     depth: 0.3,
@@ -79,7 +87,8 @@ let data = [
     z: -6.5,
   },
   {
-    name: "four",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "four",
     width: 1,
     height: 1,
     depth: 1,
@@ -88,7 +97,8 @@ let data = [
     z: -3.5,
   },
   {
-    name: "four",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "four",
     width: 1,
     height: 1,
     depth: 1,
@@ -97,7 +107,8 @@ let data = [
     z: -3.5,
   },
   {
-    name: "frigo",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "frigo",
     width: 1,
     height: 2,
     depth: 1,
@@ -106,7 +117,8 @@ let data = [
     z: -2.5,
   },
   {
-    name: "hotte",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "hotte",
     width: 1,
     height: 0.5,
     depth: 1,
@@ -115,7 +127,8 @@ let data = [
     z: -5.5,
   },
   {
-    name: "plaque",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "plaque",
     width: 1,
     height: 0.5,
     depth: 1,
@@ -124,7 +137,8 @@ let data = [
     z: -5.5,
   },
   {
-    name: "evier",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "evier",
     width: 1,
     height: 1,
     depth: 1,
@@ -136,7 +150,8 @@ let data = [
   // côté chambre
   //useless
   {
-    name: "table nuit",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 1,
@@ -145,7 +160,8 @@ let data = [
     z: 6.5,
   },
   {
-    name: "table nuit",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 1,
     height: 1,
     depth: 1,
@@ -154,7 +170,8 @@ let data = [
     z: 2.5,
   },
   {
-    name: "lit",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "lit",
     width: 4,
     height: 0.75,
     depth: 3,
@@ -164,7 +181,8 @@ let data = [
   },
   // interactions
   {
-    name: "lampe lit",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 0.2,
     height: 1,
     depth: 0.2,
@@ -173,7 +191,8 @@ let data = [
     z: 6.5,
   },
   {
-    name: "lampe lit",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "",
     width: 0.2,
     height: 1,
     depth: 0.2,
@@ -182,7 +201,8 @@ let data = [
     z: 2.5,
   },
   {
-    name: "prise",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "prise",
     width: 0.2,
     height: 0.2,
     depth: 0.2,
@@ -191,7 +211,8 @@ let data = [
     z: 1.5,
   },
   {
-    name: "radiateur",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "radiateur",
     width: 1.2,
     height: 0.75,
     depth: 0.4,
@@ -202,7 +223,8 @@ let data = [
   //salon
   //useless
   {
-    name: "meuble salon",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "meuble salon",
     width: 1,
     height: 0.5,
     depth: 3,
@@ -211,7 +233,8 @@ let data = [
     z: -3.5,
   },
   {
-    name: "canap",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "canap",
     width: 1.5,
     height: 1,
     depth: 3,
@@ -220,7 +243,8 @@ let data = [
     z: -3.5,
   },
   {
-    name: "table Basse",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "table Basse",
     width: 1.25,
     height: 0.5,
     depth: 1.25,
@@ -230,7 +254,8 @@ let data = [
   },
   //interaction
   {
-    name: "prise",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "prise",
     width: 0.2,
     height: 0.2,
     depth: 0.2,
@@ -239,7 +264,8 @@ let data = [
     z: -1.5,
   },
   {
-    name: "TV",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "TV",
     width: 0.4,
     height: 1.5,
     depth: 2.7,
@@ -248,7 +274,8 @@ let data = [
     z: -3.5,
   },
   {
-    name: "fenetre",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "fenetre",
     width: 3,
     height: 2,
     depth: 0.7,
@@ -260,7 +287,8 @@ let data = [
   //useless
 
   {
-    name: "WC",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "WC",
     width: 1,
     height: 1,
     depth: 0.75,
@@ -269,7 +297,8 @@ let data = [
     z: 3,
   },
   {
-    name: "armoire",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "armoire",
     width: 1,
     height: 2,
     depth: 2,
@@ -279,7 +308,8 @@ let data = [
   },
   // interaction
   {
-    name: "douche",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "douche",
     width: 1.5,
     height: 2.5,
     depth: 1.5,
@@ -288,7 +318,8 @@ let data = [
     z: 6.25,
   },
   {
-    name: "lavabo2",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "lavabo2",
     width: 1,
     height: 1,
     depth: 2,
@@ -297,7 +328,8 @@ let data = [
     z: 4.75,
   },
   {
-    name: "prise",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "prise",
     width: 0.2,
     height: 0.2,
     depth: 0.2,
@@ -307,7 +339,8 @@ let data = [
   },
   //murs
   {
-    name: "mur1",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "mur sans porte",
     width: 6,
     height: 3,
     depth: .3,
@@ -316,14 +349,36 @@ let data = [
     z: 2,
   },
   {
-    name: "mur1",
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "mur avec porte 1",
     width: .3,
     height: 3,
-    depth: 6,
+    depth: 2.3,
     x: -1.5,
     y: 3 / 2,
-    z: 4.85,
+    z: 3,
   },
+  {
+    texture: "./../assets/dark_brick_wall.jpg",
+    // texture2: "mur avec porte 2",
+    width: .3,
+    height: 3,
+    depth: 1.3,
+    x: -1.5,
+    y: 3 / 2,
+    z: 6.4,
+  },
+  {
+    texture: "../assets/dark_brick_wall.jpg",
+    // texture2: "mur au dessus porte",
+    width: .3,
+    height: .5,
+    depth: 3,
+    x: -1.5,
+    y: 2.75,
+    z: 4.4,
+  },
+
 ];
 export default data;
 
