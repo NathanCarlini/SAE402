@@ -4,6 +4,7 @@ import * as THREE from "three";
       import { XRControllerModelFactory } from "three/addons/webxr/XRControllerModelFactory.js";
       import {createObject} from './objects.js';
       import data from './temp.js';
+      import datascene from './scene.js';
 
       let container;
       let camera, scene, renderer;
@@ -15,7 +16,7 @@ import * as THREE from "three";
       const intersected = [];
       const tempMatrix = new THREE.Matrix4();
 
-      let control, group;
+      let control, group, group2;
       let marker, floor, baseReferenceSpace;
 
       let INTERSECTION;
@@ -98,8 +99,15 @@ import * as THREE from "three";
         group = new THREE.Group();
         scene.add(group);
 
+        group2 = new THREE.Group()
+        scene.add(group2)
+
         for (let i = 0; i < data.length; i++) {
             group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z))
+          };
+
+        for (let i = 0; i < datascene.length; i++) {
+            group2.add(createObject(datascene[i].width, datascene[i].height, datascene[i].depth, datascene[i].x, datascene[i].y, datascene[i].z))
           };
 
         // Création du renderer
@@ -310,7 +318,7 @@ import * as THREE from "three";
 					raycaster.ray.origin.setFromMatrixPosition( controller2.matrixWorld );
 					raycaster.ray.direction.set( 0, 0, - 1 ).applyMatrix4( tempMatrix );
 
-					const intersects = raycaster.intersectObjects( [ floor ] );
+					const intersects = raycaster.intersectObjects( [ floor, group, group2 ] );
 
 					if ( intersects.length > 0 ) {
 

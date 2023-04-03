@@ -192,3 +192,5 @@ let dataScene = [
 
 
 ]
+
+export default dataScene
