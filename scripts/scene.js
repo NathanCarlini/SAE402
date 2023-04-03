@@ -92,7 +92,7 @@ let dataScene = [
         z: 2.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        texture: "./../assets/pack.png",
         // texture2: "lit",
         width: 4,
         height: 0.75,
