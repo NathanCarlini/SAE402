@@ -77,9 +77,31 @@ import * as THREE from "three";
         // Création murs
         let heightWall = 3;
         const wallGeometry = new THREE.PlaneGeometry(14, heightWall);
-        const wallMaterial = new THREE.MeshPhongMaterial({
-          color: 0x00ff00,
-        });
+
+
+        // const wallMaterial = new THREE.MeshPhongMaterial({
+        //   color: 0x00ff00,
+        // });
+
+
+        const loader1 = new THREE.TextureLoader();
+
+        //loading texture
+        const texture1 = loader1.load ("../assets/blue.jpg")
+        
+        //initializing material
+        const wallMaterial = new THREE.MeshPhongMaterial();
+        
+        //setting material property
+        wallMaterial.map = texture1;
+
+
+
+
+
+
+
+
         let walls = [];
         for (let i = 0; i < 4; i++) {
           const wall = new THREE.Mesh(wallGeometry, wallMaterial);
@@ -103,11 +125,11 @@ import * as THREE from "three";
         scene.add(group2)
 
         for (let i = 0; i < data.length; i++) {
-            group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z))
+            group.add(createObject(data[i].width, data[i].height, data[i].depth, data[i].x, data[i].y, data[i].z, data[i].texture))
           };
 
         for (let i = 0; i < datascene.length; i++) {
-            group2.add(createObject(datascene[i].width, datascene[i].height, datascene[i].depth, datascene[i].x, datascene[i].y, datascene[i].z))
+            group2.add(createObject(datascene[i].width, datascene[i].height, datascene[i].depth, datascene[i].x, datascene[i].y, datascene[i].z, datascene[i].texture))
           };
 
         // Création du renderer
@@ -250,7 +272,7 @@ import * as THREE from "three";
           const intersection = intersections[0];
 
           const object = intersection.object;
-          object.material.emissive.b = 1;
+          // object.material.emissive.b = 1;
           // controller.attach(object);
 
           controller.userData.selected = object;
@@ -262,7 +284,7 @@ import * as THREE from "three";
 
         if (controller.userData.selected !== undefined) {
           const object = controller.userData.selected;
-          object.material.emissive.b = 0;
+          // object.material.emissive.b = 0;
           // group.attach(object);
 
           controller.userData.selected = undefined;
@@ -300,7 +322,7 @@ import * as THREE from "three";
       function cleanIntersected() {
         while (intersected.length) {
           const object = intersected.pop();
-          object.material.emissive.r = 0;
+          // object.material.emissive.r = 0;
         }
       }
 

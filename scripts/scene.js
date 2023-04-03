@@ -1,6 +1,6 @@
 let dataScene = [
     {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -10,7 +10,7 @@ let dataScene = [
         z: -6.5,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -21,7 +21,7 @@ let dataScene = [
       },
     
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -31,7 +31,7 @@ let dataScene = [
         z: -5.5,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -41,7 +41,7 @@ let dataScene = [
         z: -4.5,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -52,7 +52,7 @@ let dataScene = [
       },
     
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -63,7 +63,7 @@ let dataScene = [
       },
     
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 3,
         height: 1,
@@ -72,7 +72,7 @@ let dataScene = [
         y: 1 / 2,
         z: -2.5,
       },{
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -82,7 +82,7 @@ let dataScene = [
         z: 6.5,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
         height: 1,
@@ -92,7 +92,7 @@ let dataScene = [
         z: 2.5,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "lit",
         width: 4,
         height: 0.75,
@@ -101,7 +101,7 @@ let dataScene = [
         y: 0.75 / 2,
         z: 4.5,
       },{
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "meuble salon",
         width: 1,
         height: 0.5,
@@ -111,7 +111,7 @@ let dataScene = [
         z: -3.5,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/ed.png",
         // texture2: "canap",
         width: 1.5,
         height: 1,
@@ -121,7 +121,7 @@ let dataScene = [
         z: -3.5,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "table Basse",
         width: 1.25,
         height: 0.5,
@@ -130,7 +130,7 @@ let dataScene = [
         y: 0.5 / 2,
         z: -3.5,
       },{
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "WC",
         width: 1,
         height: 1,
@@ -140,7 +140,7 @@ let dataScene = [
         z: 3,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/test.jpg",
         // texture2: "armoire",
         width: 1,
         height: 2,
@@ -149,7 +149,7 @@ let dataScene = [
         y: 2 / 2,
         z: 6.25,
       },{
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/blue.jpg",
         // texture2: "mur sans porte",
         width: 6,
         height: 3,
@@ -159,7 +159,7 @@ let dataScene = [
         z: 2,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/blue.jpg",
         // texture2: "mur avec porte 1",
         width: .3,
         height: 3,
@@ -169,7 +169,7 @@ let dataScene = [
         z: 3,
       },
       {
-        texture: "./../assets/dark_brick_wall.jpg",
+        texture: "./../assets/blue.jpg",
         // texture2: "mur avec porte 2",
         width: .3,
         height: 3,
@@ -179,7 +179,7 @@ let dataScene = [
         z: 6.4,
       },
       {
-        texture: "../assets/dark_brick_wall.jpg",
+        texture: "../assets/blue.jpg",
         // texture2: "mur au dessus porte",
         width: .3,
         height: .5,
