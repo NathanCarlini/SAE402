@@ -64,11 +64,25 @@ import * as THREE from "three";
 
         // Création du sol
         const floorGeometry = new THREE.PlaneGeometry(14, 14);
-        const floorMaterial = new THREE.MeshPhongMaterial({
-          color: 0xffffff,
-        //   roughness: 1.0,
-        //   metalness: 0.0,
-        });
+        // const floorMaterial = new THREE.MeshPhongMaterial({
+        //   color: 0xffffff,
+        // //   roughness: 1.0,
+        // //   metalness: 0.0,
+        // });
+
+
+        const loader2 = new THREE.TextureLoader();
+
+        //loading texture
+        const texture2 = loader2.load ("../assets/wood.jpg")
+        
+        //initializing material
+        const floorMaterial = new THREE.MeshPhongMaterial();
+        
+        //setting material property
+        floorMaterial.map = texture2;
+
+
         floor = new THREE.Mesh(floorGeometry, floorMaterial);
         floor.rotation.x = -Math.PI / 2;
         floor.receiveShadow = true;
@@ -83,7 +97,6 @@ import * as THREE from "three";
         //   color: 0x00ff00,
         // });
 
-
         const loader1 = new THREE.TextureLoader();
 
         //loading texture
@@ -94,13 +107,6 @@ import * as THREE from "three";
         
         //setting material property
         wallMaterial.map = texture1;
-
-
-
-
-
-
-
 
         let walls = [];
         for (let i = 0; i < 4; i++) {
@@ -272,7 +278,7 @@ import * as THREE from "three";
           const intersection = intersections[0];
 
           const object = intersection.object;
-          // object.material.emissive.b = 1;
+          object.material.emissive.b = 1;
           // controller.attach(object);
 
           controller.userData.selected = object;
@@ -284,7 +290,7 @@ import * as THREE from "three";
 
         if (controller.userData.selected !== undefined) {
           const object = controller.userData.selected;
-          // object.material.emissive.b = 0;
+          object.material.emissive.b = 0;
           // group.attach(object);
 
           controller.userData.selected = undefined;

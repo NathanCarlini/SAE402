@@ -19,16 +19,13 @@ export function createObject(
       roughness: 0.7,
       metalness: 0.0,
   });
-//initialization
+
 // const loader = new THREE.TextureLoader();
 
-// //loading texture
 // const texture = loader.load (textureURL)
 
-// //initializing material
 // const material = new THREE.MeshPhongMaterial();
 
-// //setting material property
 // material.map = texture;
 
 
