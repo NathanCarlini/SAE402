@@ -71,7 +71,18 @@ let dataScene = [
         x: -2.5,
         y: 1 / 2,
         z: -2.5,
-      },{
+      },
+      {
+        texture: "./../assets/test.jpg",
+        // texture2: "lavabo2",
+        width: 1,
+        height: 1,
+        depth: 2,
+        x: -6.5,
+        y: 1 / 2,
+        z: 4.75
+      },
+      {
         texture: "./../assets/test.jpg",
         // texture2: "",
         width: 1,
@@ -100,7 +111,8 @@ let dataScene = [
         x: 5,
         y: 0.75 / 2,
         z: 4.5,
-      },{
+      },
+      {
         texture: "./../assets/test.jpg",
         // texture2: "meuble salon",
         width: 1,
@@ -129,16 +141,8 @@ let dataScene = [
         x: 3.5,
         y: 0.5 / 2,
         z: -3.5,
-      },{
-        texture: "./../assets/test.jpg",
-        // texture2: "WC",
-        width: 1,
-        height: 1,
-        depth: 0.75,
-        x: -6.5,
-        y: 1 / 2,
-        z: 3,
       },
+      
       {
         texture: "./../assets/test.jpg",
         // texture2: "armoire",
