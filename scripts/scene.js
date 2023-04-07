@@ -1,6 +1,6 @@
 let dataScene = [
     {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x2e2e2e,
         // texture2: "",
         width: 1,
         height: 1,
@@ -10,7 +10,7 @@ let dataScene = [
         z: -6.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x2e2e2e,
         // texture2: "",
         width: 1,
         height: 1,
@@ -21,7 +21,7 @@ let dataScene = [
       },
     
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x2e2e2e,
         // texture2: "",
         width: 1,
         height: 1,
@@ -31,7 +31,7 @@ let dataScene = [
         z: -5.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x2e2e2e,
         // texture2: "",
         width: 1,
         height: 1,
@@ -41,7 +41,7 @@ let dataScene = [
         z: -4.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x2e2e2e,
         // texture2: "",
         width: 1,
         height: 1,
@@ -52,7 +52,7 @@ let dataScene = [
       },
     
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x5c351c,
         // texture2: "",
         width: 1,
         height: 1,
@@ -63,7 +63,7 @@ let dataScene = [
       },
     
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x5c351c,
         // texture2: "",
         width: 3,
         height: 1,
@@ -73,9 +73,9 @@ let dataScene = [
         z: -2.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: "",
         // texture2: "lavabo2",
-        width: 1,
+        width: .8,
         height: 1,
         depth: 2,
         x: -6.5,
@@ -83,7 +83,7 @@ let dataScene = [
         z: 4.75
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x5c351c,
         // texture2: "",
         width: 1,
         height: 1,
@@ -93,7 +93,7 @@ let dataScene = [
         z: 6.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x5c351c,
         // texture2: "",
         width: 1,
         height: 1,
@@ -103,7 +103,7 @@ let dataScene = [
         z: 2.5,
       },
       {
-        texture: "./../assets/pack.png",
+        colorbox: 0xff0000,
         // texture2: "lit",
         width: 4,
         height: 0.75,
@@ -113,7 +113,7 @@ let dataScene = [
         z: 4.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x6b452a,
         // texture2: "meuble salon",
         width: 1,
         height: 0.5,
@@ -123,7 +123,7 @@ let dataScene = [
         z: -3.5,
       },
       {
-        texture: "./../assets/ed.png",
+        colorbox: 0x000000,
         // texture2: "canap",
         width: 1.5,
         height: 1,
@@ -133,7 +133,7 @@ let dataScene = [
         z: -3.5,
       },
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x5c351c,
         // texture2: "table Basse",
         width: 1.25,
         height: 0.5,
@@ -144,7 +144,7 @@ let dataScene = [
       },
       
       {
-        texture: "./../assets/test.jpg",
+        colorbox: 0x5c351c,
         // texture2: "armoire",
         width: 1,
         height: 2,
@@ -153,7 +153,7 @@ let dataScene = [
         y: 2 / 2,
         z: 6.25,
       },{
-        texture: "./../assets/blue.jpg",
+        colorbox: 0x556570,
         // texture2: "mur sans porte",
         width: 6,
         height: 3,
@@ -163,7 +163,7 @@ let dataScene = [
         z: 2,
       },
       {
-        texture: "./../assets/blue.jpg",
+        colorbox: 0x556570,
         // texture2: "mur avec porte 1",
         width: .3,
         height: 3,
@@ -173,7 +173,7 @@ let dataScene = [
         z: 3,
       },
       {
-        texture: "./../assets/blue.jpg",
+        colorbox: 0x556570,
         // texture2: "mur avec porte 2",
         width: .3,
         height: 3,
@@ -183,7 +183,7 @@ let dataScene = [
         z: 6.4,
       },
       {
-        texture: "../assets/blue.jpg",
+        colorbox: 0x556570,
         // texture2: "mur au dessus porte",
         width: .3,
         height: .5,

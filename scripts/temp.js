@@ -4,7 +4,7 @@ let data = [
 
   // interactions
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "",
     width: 0.3,
     height: 1,
@@ -15,7 +15,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "lave-vaisselle",
     width: 1,
     height: 1,
@@ -26,7 +26,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "four",
     width: 1,
     height: 1,
@@ -37,7 +37,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "frigo",
     width: 1,
     height: 2,
@@ -48,7 +48,8 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
+    
     // texture2: "hotte",
     width: 1,
     height: 0.5,
@@ -59,18 +60,18 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "plaque",
     width: 1,
-    height: 0.5,
+    height: 0.05,
     depth: 1,
     x: -6.5,
-    y: 0.8,
+    y: 1,
     z: -5.5,
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "evier",
     width: 1,
     height: 1,
@@ -86,7 +87,7 @@ let data = [
 
   // interactions
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "",
     width: 0.2,
     height: 1,
@@ -97,7 +98,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "",
     width: 0.2,
     height: 1,
@@ -108,8 +109,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
-    // texture2: "prise",
+    color: 0xffff00,// texture2: "prise",
     width: 0.2,
     height: 0.2,
     depth: 0.2,
@@ -119,8 +119,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/Radiator.png",
-    // texture2: "radiateur",
+    color: 0xffff00,// texture2: "radiateur",
     width: 1.2,
     height: 0.75,
     depth: 0.4,
@@ -134,8 +133,7 @@ let data = [
 
   //interaction
   {
-    texture: "./../assets/test.jpg",
-    // texture2: "prise",
+    color: 0xffff00,// texture2: "prise",
     width: 0.2,
     height: 0.2,
     depth: 0.2,
@@ -145,7 +143,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    color: 0xffff00,
     // texture2: "TV",
     width: 0.4,
     height: 1.5,
@@ -156,8 +154,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
-    // texture2: "fenetre",
+    color: 0xffff00,// texture2: "fenetre",
     width: 3,
     height: 2,
     depth: 0.7,
@@ -171,8 +168,7 @@ let data = [
 
   // interaction
   {
-    texture: "./../assets/test.jpg",
-    // texture2: "douche",
+    color: 0xffff00,// texture2: "douche",
     width: 1.5,
     height: 2.5,
     depth: 1.5,
@@ -182,8 +178,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
-    // texture2: "WC",
+    color: 0xffff00,// texture2: "WC",
     width: 1,
     height: 1,
     depth: 0.75,
@@ -193,8 +188,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
-    // texture2: "prise",
+    color: 0xffff00,// texture2: "prise",
     width: 0.2,
     height: 0.2,
     depth: 0.2,

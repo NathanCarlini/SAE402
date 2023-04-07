@@ -10,23 +10,25 @@ export function createObject(
   positionX,
   positionY,
   positionZ,
+  colorbox,
   textureURL
 ) {
   let heightBox = 2;
   const geometry = new THREE.BoxGeometry(width, height, depth);
-  // const material = new THREE.MeshStandardMaterial({
-  //   color: 0xff0000,
-  //     roughness: 0.7,
-  //     metalness: 0.0,
-  // });
+  const material = new THREE.MeshStandardMaterial({
+    color: colorbox,
+      roughness: 0.7,
+      metalness: 0.0,
 
-const loader = new THREE.TextureLoader();
+  });
 
-const texture = loader.load (textureURL)
+// const loader = new THREE.TextureLoader();
 
-const material = new THREE.MeshPhongMaterial();
+// const texture = loader.load (textureURL)
 
-material.map = texture;
+// const material = new THREE.MeshPhongMaterial();
+
+// material.map = texture;
 
 
   const object = new THREE.Mesh(geometry, material);

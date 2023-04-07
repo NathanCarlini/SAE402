@@ -54,11 +54,17 @@ function init() {
   control.update();
 
   // Création de la lumière
-  const spotLight = new THREE.SpotLight(0xffffff);
-  spotLight.position.set(0, 20, 0);
-  scene.add(spotLight);
-  const spotLightHelper = new THREE.SpotLightHelper(spotLight);
-  scene.add(spotLightHelper);
+  const directionalLight = new THREE.DirectionalLight(0xffffff);
+  directionalLight.position.set(-2, 2.9, -2);
+  scene.add(directionalLight);
+  const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight);
+  scene.add(directionalLightHelper);
+  const directionalLight2 = new THREE.DirectionalLight(0xffffff);
+  directionalLight2.position.set(2, 2.9,2);
+  scene.add(directionalLight2);
+  const directionalLightHelper2 = new THREE.DirectionalLightHelper(directionalLight2);
+  scene.add(directionalLightHelper2);
+
 
   // Création marker pour la téléportation
   marker = new THREE.Mesh(
@@ -127,10 +133,12 @@ function init() {
   scene.add(walls[0], walls[1], walls[2], walls[3]);
 
   const roofGeometry = new THREE.PlaneGeometry(14, 14);
-  const roofMaterial = new THREE.MeshPhongMaterial();
-  roofMaterial.map = texture1
+  const roofMaterial = new THREE.MeshPhongMaterial({color: 0xff0000});
+  // roofMaterial.map = texture1
   const roof =  new THREE.Mesh(roofGeometry, roofMaterial)
+  roof.translateY(3)
   roof.rotateX(Math.PI/2)
+  scene.add(roof)
 
   group = new THREE.Group();
   scene.add(group);
@@ -149,8 +157,7 @@ function init() {
         data[i].x,
         data[i].y,
         data[i].z,
-        data[i].texture,
-        data[i].value
+        data[i].color
       )
     );
   }
@@ -164,14 +171,14 @@ function init() {
         datascene[i].x,
         datascene[i].y,
         datascene[i].z,
-        datascene[i].texture
+        datascene[i].colorbox
       )
     );
   }
 
   const loaderWin = new FontLoader();
   loaderWin.load("./assets/Alkatra_Regular.json", function (font) {
-     const winGeometry = new TextGeometry("Bravo, la Terre va mourir", {
+     const winGeometry = new TextGeometry("Bravo, la Terre va mourir.", {
     font: font,
     size: 0.2,
     height: 0,
@@ -189,7 +196,7 @@ function init() {
 
   const loaderLose = new FontLoader();
   loaderLose.load("./assets/Alkatra_Regular.json", function (font) {
-     const loseGeometry = new TextGeometry("Pollues un max !!!", {
+     const loseGeometry = new TextGeometry("Essaie de consommer le plus possible.", {
     font: font,
     size: 0.2,
     height: 0,
@@ -198,7 +205,7 @@ function init() {
     loseMesh = new THREE.Mesh(loseGeometry, loseMaterial);
     loseMesh.position.x = 6.9;
     loseMesh.position.y = 1.5;
-    loseMesh.position.z = -1.3;
+    loseMesh.position.z = -1.9;
     loseMesh.rotateY(-Math.PI / 2);
     group.add(loseMesh);
     
@@ -355,16 +362,16 @@ function onSelectStart(event) {
   }
 }
 
-function onSelectEnd(event) {
-  const controller = event.target;
+// function onSelectEnd(event) {
+//   const controller = event.target;
 
-  if (controller.userData.selected !== undefined) {
-    const object = controller.userData.selected;
-    group.attach(object);
+//   if (controller.userData.selected !== undefined) {
+//     const object = controller.userData.selected;
+//     group.attach(object);
 
-    controller.userData.selected = undefined;
-  }
-}
+//     controller.userData.selected = undefined;
+//   }
+// }
 
 function getIntersections(controller) {
   tempMatrix.identity().extractRotation(controller.matrixWorld);
