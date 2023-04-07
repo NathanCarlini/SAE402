@@ -119,7 +119,7 @@ let data = [
     
   },
   {
-    texture: "./../assets/test.jpg",
+    texture: "./../assets/Radiator.png",
     // texture2: "radiateur",
     width: 1.2,
     height: 0.75,

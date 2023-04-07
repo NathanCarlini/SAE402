@@ -14,19 +14,19 @@ export function createObject(
 ) {
   let heightBox = 2;
   const geometry = new THREE.BoxGeometry(width, height, depth);
-  const material = new THREE.MeshStandardMaterial({
-    color: 0xff0000,
-      roughness: 0.7,
-      metalness: 0.0,
-  });
+  // const material = new THREE.MeshStandardMaterial({
+  //   color: 0xff0000,
+  //     roughness: 0.7,
+  //     metalness: 0.0,
+  // });
 
-// const loader = new THREE.TextureLoader();
+const loader = new THREE.TextureLoader();
 
-// const texture = loader.load (textureURL)
+const texture = loader.load (textureURL)
 
-// const material = new THREE.MeshPhongMaterial();
+const material = new THREE.MeshPhongMaterial();
 
-// material.map = texture;
+material.map = texture;
 
 
   const object = new THREE.Mesh(geometry, material);
